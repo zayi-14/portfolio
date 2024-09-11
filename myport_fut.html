@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav PC's Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for Futuristic Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <h1 id="nav-name" class="glow">Abhinav PC</h1>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button id="dark-mode-toggle" class="glow"><i class="fas fa-sun"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hi, I am</p>
+                <h1 class="glow">Abhinav PC</h1>
+                <p>Passionate Python Django developer with strong expertise in both front-end and back-end development.
+                    Adept at building scalable, maintainable web applications with a focus on delivering intuitive and
+                    responsive user experiences. Seeking to leverage my skills in a dynamic development team to create
+                    impactful solutions that drive business success.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/no_bg1.png" alt="Abhinav PC's photo">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="glow">My Skills</h2>
+        <ul>
+            <!-- First row of skills -->
+            <li><i class="fas fa-network-wired"></i>
+                <p>HTTP</p>
+            </li>
+            <li><i class="fab fa-html5"></i>
+                <p>HTML</p>
+            </li>
+            <li><i class="fab fa-css3-alt"></i>
+                <p>CSS</p>
+            </li>
+            <li><i class="fab fa-js"></i>
+                <p>JavaScript</p>
+            </li>
+            <li><i class="fab fa-bootstrap"></i>
+                <p>Bootstrap</p>
+            </li>
+            <!-- Second row of skills -->
+            <li><i class="fab fa-python"></i>
+                <p>Python</p>
+            </li>
+            <li><i class="fas fa-server"></i>
+                <p>Django</p>
+            </li>
+            <li><i class="fas fa-link"></i>
+                <p>REST</p>
+            </li>
+            <li><i class="fab fa-git-alt"></i>
+                <p>Git</p>
+            </li>
+            <li><i class="fas fa-database"></i>
+                <p>MySQL</p>
+            </li>
+            <li><i class="fas fa-cogs"></i>
+                <p>Postman</p>
+            </li>
+            <li>
+                <i class="fas fa-file-excel"></i>
+                <p>Excel</p>
+            </li>
+            <!-- Additional skills (hidden initially) -->
+            <li class="extra-skill"><i class="fas fa-cogs"></i>
+                <p>Postman</p>
+            </li>
+            <!-- Add more extra skills here if needed -->
+        </ul>
+        <!-- <button id="toggleSkills" class="glow">+1 more skill</button> -->
+    </section>
+
+    <section id="projects">
+        <h2 class="glow">My Projects</h2>
+        <div class="project">
+            <div class="project-details">
+                <h2 class="glow">Honey Spot</h2>
+                <p>Developed The Honey Spot, a Python Django web application that enables users to browse and order
+                    honey and honey-related products. The platform offers a seamless shopping experience with features
+                    like product browsing, cart management, and secure checkout.</p>
+                <ul class="project-points">
+                    <li>Built a scalable and maintainable backend using Django, focusing on efficient management of
+                        products, orders, and customer data.</li>
+                    <li>Implemented Django’s authentication and authorization system to ensure secure access for both
+                        customers and administrators.</li>
+                    <li>Developed comprehensive e-commerce functionalities, including product catalog, shopping cart,
+                        and order processing, ensuring a smooth shopping experience.</li>
+                    <li>Created an admin panel for managing products, orders, and customer information, making backend
+                        operations straightforward for administrators.</li>
+                    <li>Designed a responsive and intuitive user interface using HTML, CSS, Bootstrap, and JavaScript,
+                        enhancing user experience across various devices.</li>
+                </ul>
+                <div class="project-skills">
+                    <ul>
+                        <li><i class="fab fa-html5"></i>
+                            <p>HTML</p>
+                        </li>
+                        <li><i class="fab fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </li>
+                        <li><i class="fab fa-js"></i>
+                            <p>JavaScript</p>
+                        </li>
+                        <li><i class="fab fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </li>
+                        <li><i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </li>
+                        <li><i class="fas fa-server"></i>
+                            <p>Django</p>
+                        </li>
+                        <li><i class="fab fa-git-alt"></i>
+                            <p>Git</p>
+                        </li>
+                        <li><i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="images/honey_logo.png" alt="Honey Spot project image">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-details">
+                <h2 class="glow">Navyojan</h2>
+                <p>Developed and managed Navyojan.in, a Python and Django-based web application connecting over 1
+                    million students in India with scholarship opportunities. The platform features a powerful search
+                    engine and advanced filtering for scholarships from various sources.</p>
+                <ul class="project-points">
+                    <li>Designed and implemented scalable backend architecture using Python and Django</li>
+                    <li>Managed MySQL database interactions to ensure quick access to scholarship data and a seamless
+                        user experience.</li>
+                    <li>Collaborated on frontend development using HTML, CSS, Bootstrap, and JavaScript</li>
+                    <li>Leveraged Django ORM for efficient query management and data consistency.</li>
+                    <li>Implemented strong data validation rules to maintain the accuracy of information presented to
+                        users.</li>
+                    <li>Deployed the application, ensuring stability and high availability.</li>
+                    <li><strong>HOSTED WEBSITE: <a href="https://navyojan.in/" target="_blank">Navyojan.in <i
+                                    class="fas fa-external-link-alt"></i></a></strong></li>
+                </ul>
+                <div class="project-skills">
+                    <ul>
+                        <li><i class="fab fa-html5"></i>
+                            <p>HTML</p>
+                        </li>
+                        <li><i class="fab fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </li>
+                        <li><i class="fab fa-js"></i>
+                            <p>JavaScript</p>
+                        </li>
+                        <li><i class="fab fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </li>
+                        <li><i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </li>
+                        <li><i class="fas fa-server"></i>
+                            <p>Django</p>
+                        </li>
+                        <li><i class="fab fa-git-alt"></i>
+                            <p>Git</p>
+                        </li>
+                        <li><i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </li>
+                        <li><i class="fab fa-postman"></i>
+                            <p>Postman</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="images/nav_logo.png" alt="Navyojan project image">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-details">
+                <h2 class="glow">Walletwise Backend Development</h2>
+                <p>Developed the backend for Wallet Wise, a revolutionary Python Django-based application designed to
+                    streamline the USDT selling experience. Wallet Wise offers users the fastest and most secure way to
+                    manage USDT transactions, ensuring quick deposits, seamless sales, and prompt payments—all backed by
+                    100% genuine and safe transactions.</p>
+                <ul class="project-points">
+                    <li>Engineered a robust backend using Python and Django Rest Framework, tailored to handle
+                        high-frequency USDT transactions efficiently.</li>
+                    <li>Managed MySQL database interactions, optimizing for speed and reliability to support rapid
+                        transaction processing.</li>
+                    <li>Developed RESTful APIs to enable seamless integration between the front end and backend,
+                        ensuring smooth and efficient data handling for USDT transactions.</li>
+                    <li>Implemented JWT authentication to secure user sessions, ensuring that all transactions are
+                        protected and conducted safely.</li>
+                    <li>Integrated Twilio to provide real-time SMS notifications, alerting users instantly about
+                        deposits, sales, and payment statuses.</li>
+                    <li>Enforced rigorous data validation and encryption practices to guarantee the safety and integrity
+                        of all financial transactions.</li>
+                    <li>Deployed the application on GoDaddy, configuring the server environment to ensure high
+                        availability, security, and optimal performance for users.</li>
+                </ul>
+                <div class="project-skills">
+                    <ul>
+                        <li><i class="fab fa-html5"></i>
+                            <p>HTML</p>
+                        </li>
+                        <li><i class="fab fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </li>
+                        <li><i class="fab fa-js"></i>
+                            <p>JavaScript</p>
+                        </li>
+                        <li><i class="fab fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </li>
+                        <li><i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </li>
+                        <li><i class="fas fa-server"></i>
+                            <p>Django</p>
+                        </li>
+                        <li><i class="fab fa-git-alt"></i>
+                            <p>Git</p>
+                        </li>
+                        <li><i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </li>
+                        <li><i class="fab fa-postman"></i>
+                            <p>Postman</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="images/wal_log.png" alt="Walletwise project image">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="glow">Get In Touch</h2>
+        <p><a href="mailto:abhinavpcone@gmail.com">abhinavpcone@gmail.com</a></p>
+        <p>8590897566</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Abhinav PC. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script src="scripts.js"></script>
+</body>
+
+</html>

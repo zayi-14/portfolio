@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav PC's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: #827474;
+            /* Light mode background */
+            color: #656161;
+            /* Light mode text color */
+            transition: background-color 0.3s, color 0.3s;
+            padding-top: 60px;
+        }
+
+        header {
+            background: #aac0d6;
+            color: #333;
+            padding: 9px 0;
+            text-align: center;
+            box-shadow: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: background-color 0.3s;
+            border: none;
+            z-index: 1000;
+        }
+
+        header.scrolled {
+            background-color: #2f5883;
+            color: #fff;
+        }
+
+        #nav-name {
+            display: none;
+            /* Hidden initially */
+            margin-right: 800px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header.scrolled #nav-name {
+            display: block;
+            /* Display name when scrolled */
+            color: #f5e0e0;
+        }
+
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        #dark-mode-toggle {
+            background-color: #aac0d6;
+            color: #090101;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #dark-mode-toggle.scrolled {
+            background-color: #2f5883;
+            color: #fff;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a.scrolled {
+            color: #fff;
+            /* Change to the desired color when scrolled */
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 4rem;
+            margin: 0 0 0.2rem 0;
+            background: #aac0d6;
+            border-radius: 8px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #1d5796;
+        }
+
+        #about {
+            margin-top: 0;
+            /* Remove top margin for About section */
+            background: #aac0d6;
+            border-radius: 0;
+            box-shadow: none;
+            /* No shadow for the About section */
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+            max-width: 60%;
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            color: #1d5796;
+        }
+
+        .about-text h1 {
+            font-size: 3rem;
+            color: #1d5796;
+            margin-bottom: .5rem;
+        }
+
+        .about-image {
+            flex: 0 0 auto;
+            max-width: 40%;
+            transform: translateX(0);
+        }
+
+        .about-image img {
+            border-radius: 8%;
+            width: auto;
+            height: auto;
+            margin-right: 20px;
+            max-width: 300px;
+            object-fit: cover;
+            margin-top: 40px;
+            z-index: 1;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, .8);
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background-color: #2f4051;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        #skills ul {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            /* 5 skills per row */
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            /* Prevents overflow content */
+            max-height: 540px;
+            /* Adjusted to fit two rows of skills */
+            transition: max-height 0.3s ease;
+        }
+
+        #skills ul li {
+            margin: 0;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 12px;
+            box-shadow: 1 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            margin-left: 60px;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            text-align: center;
+        }
+
+        #skills ul li i {
+            font-size: 2rem;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        #skills ul li p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #007BFF;
+        }
+
+        #skills ul .extra-skill {
+            opacity: 0;
+            /* Hide extra skills */
+            max-height: 0;
+            /* Prevent extra skills from taking space */
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            overflow: hidden;
+            /* Hide overflow content */
+        }
+
+        #skills ul.show-all .extra-skill {
+            opacity: 1;
+            /* Show extra skills */
+            max-height: 100px;
+            /* Adjust height to fit the content */
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+        }
+
+        #toggleSkills {
+            margin-top: 1rem;
+            margin-left: 40rem;
+            padding: 0.5rem 1rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #toggleSkills:hover {
+            background-color: #0056b3;
+        }
+
+        .project {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 24px;
+            background: #E8E8E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            gap: 1rem;
+        }
+
+        .project h2 {
+            margin-top: 0;
+            color: #007BFF;
+            text-align: left;
+        }
+
+        .project p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .project-points {
+            list-style-type: disc;
+            padding-left: 80px;
+            margin: 0;
+        }
+
+        .project-points li {
+            margin-bottom: 0.5rem;
+            font-size: .9rem;
+            max-width: 600px;
+        }
+
+        .project-skills {
+            margin-top: 1rem;
+        }
+
+        .project-skills ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-skills ul li {
+            padding: 5px;
+            background: #fffefe;
+            border-radius: 5px;
+            box-shadow: 1 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: auto;
+        }
+
+        .project-skills ul li i {
+            font-size: 1.5rem;
+            color: #007BFF;
+        }
+
+        .project-skills ul li p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #007BFF;
+        }
+
+        .project-image {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: 0;
+            margin-right: 12rem;
+            margin-top: 0;
+        }
+
+        .project-image img {
+            width: auto;
+            height: auto;
+            max-width: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .project a {
+            text-decoration: none;
+            color: #07284b;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode .project a {
+            color: #4a90e2;
+            /* Dark mode link color */
+        }
+
+        body.dark-mode .project a:hover {
+            color: #6ab0f2;
+            /* Dark mode link color on hover */
+        }
+
+        #contact {
+            padding: 1rem;
+            background: #aac0d6;
+            border-radius: 8px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact p {
+            color: #333;
+        }
+
+        #contact a {
+            text-decoration: none;
+            color: #07284b;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode #contact p {
+            color: #4a90e2;
+        }
+
+        body.dark-mode #contact {
+            background-color: #2c2c2c;
+            /* Dark mode background color for the contact section */
+            color: #e4e4e4;
+            /* Dark mode text color for the contact section */
+        }
+
+        body.dark-mode #contact a {
+            color: #4a90e2;
+            /* Dark mode link color */
+        }
+
+        body.dark-mode #contact a:hover {
+            color: #6ab0f2;
+            /* Dark mode link color on hover */
+        }
+
+        footer {
+            text-align: center;
+            background: #60aaf4;
+            color: #fff;
+            padding: 1rem 0;
+            margin-top: .5rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #e4e4e4;
+        }
+
+        body.dark-mode #about {
+            background-color: #2c2c2c;
+            /* Dark mode background for About section */
+            color: #e4e4e4;
+            /* Dark mode text color for About section */
+        }
+
+        body.dark-mode #about h1 {
+            color: #ffffff;
+        }
+
+        body.dark-mode #about p {
+            color: #ffffff;
+        }
+
+        body.dark-mode header {
+            background: #2c2c2c;
+            color: #e4e4e4;
+        }
+
+        body.dark-mode nav ul li a {
+            color: #e4e4e4;
+        }
+
+        body.dark-mode section {
+            background: #2c2c2c;
+            color: #e4e4e4;
+        }
+
+        body.dark-mode section h2 {
+            color: #e4e4e4;
+        }
+
+        body.dark-mode .stat-item {
+            background-color: #444;
+        }
+
+        body.dark-mode .project {
+            border: 1px solid #444;
+            background: #333;
+        }
+
+        body.dark-mode .project h3 {
+            color: #e4e4e4;
+        }
+
+        body.dark-mode footer {
+            background: #2c2c2c;
+        }
+
+        body.dark-mode #dark-mode-toggle {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark-mode #skills ul li {
+            background: #444;
+        }
+
+        body.dark-mode #skills ul li i {
+            color: #fff;
+        }
+
+        body.dark-mode #skills ul li p {
+            color: #e4e4e4;
+        }
+
+        /* Responsive CSS */
+
+        @media (max-width: 1024px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .about-text {
+                max-width: 100%;
+            }
+
+            .about-image {
+                max-width: 80%;
+                margin-bottom: 2rem;
+            }
+
+            .project {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .project-points {
+                padding-left: 20px;
+            }
+
+            .project-image {
+                margin: 0;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #skills ul {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                max-height: 540px;
+            }
+
+            #toggleSkills {
+                margin-left: 10rem;
+                margin-bottom: 3rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            #skills ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-image img {
+                max-width: 100%;
+            }
+
+            .about-image img {
+                max-width: 100%;
+                height: auto;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <ul>
+                <h1 id="nav-name">Abhinav PC</h1>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="dark-mode-toggle" class="sun-mode"><i class="fas fa-sun"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hi, I am</p>
+                <h1>Abhinav PC</h1>
+                <p>Passionate Python Django developer with strong expertise in both front-end and back-end
+                    development. Adept at building scalable, maintainable web applications with a focus on
+                    delivering intuitive and responsive user experiences. Seeking to leverage my skills in a
+                    dynamic development team to create impactful solutions that drive business success.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="images/IMG_5513-removebg-preview (1).png" alt="Abhinav PC's photo">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <!-- First row of skills -->
+            <li><i class="fas fa-network-wired"></i>
+                <p>HTTP</p>
+            </li>
+            <li><i class="fab fa-html5"></i>
+                <p>HTML</p>
+            </li>
+            <li><i class="fab fa-css3-alt"></i>
+                <p>CSS</p>
+            </li>
+            <li><i class="fab fa-js"></i>
+                <p>JavaScript</p>
+            </li>
+            <li><i class="fab fa-bootstrap"></i>
+                <p>Bootstrap</p>
+            </li>
+            <!-- Second row of skills -->
+            <li><i class="fab fa-python"></i>
+                <p>Python</p>
+            </li>
+            <li><i class="fas fa-server"></i>
+                <p>Django</p>
+            </li>
+            <li><i class="fas fa-link"></i>
+                <p>REST</p>
+            </li>
+            <li><i class="fab fa-git-alt"></i>
+                <p>Git</p>
+            </li>
+            <li><i class="fas fa-database"></i>
+                <p>MySQL</p>
+            </li>
+            <!-- Additional skills (hidden initially) -->
+            <li class="extra-skill"><i class="fas fa-cogs"></i>
+                <p>Postman</p>
+            </li>
+            <!-- Add more extra skills here if needed -->
+        </ul>
+        <button id="toggleSkills">+1 more skill</button>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <div class="project-details">
+                <h2>Honey Spot</h2>
+                <p>Developed The Honey Spot, a Python Django web application that enables users to browse and order
+                    honey and honey-related products. The platform offers a seamless shopping experience with features
+                    like product browsing, cart management, and secure checkout.</p>
+                <ul class="project-points">
+                    <li>Built a scalable and maintainable backend using Django, focusing on efficient management of
+                        products, orders, and customer data.</li>
+                    <li>Implemented Django’s authentication and authorization system to ensure secure access for both
+                        customers and administrators.</li>
+                    <li>Developed comprehensive e-commerce functionalities, including product catalog, shopping cart,
+                        and order processing, ensuring a smooth shopping experience.</li>
+                    <li>Created an admin panel for managing products, orders, and customer information, making backend
+                        operations straightforward for administrators.</li>
+                    <li>Designed a responsive and intuitive user interface using HTML, CSS, Bootstrap, and JavaScript,
+                        enhancing user experience across various devices.</li>
+                </ul>
+                <div class="project-skills">
+                    <ul>
+                        <li><i class="fab fa-html5"></i>
+                            <p>HTML</p>
+                        </li>
+                        <li><i class="fab fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </li>
+                        <li><i class="fab fa-js"></i>
+                            <p>JavaScript</p>
+                        </li>
+                        <li><i class="fab fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </li>
+                        <li><i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </li>
+                        <li><i class="fas fa-server"></i>
+                            <p>Django</p>
+                        </li>
+                        <li><i class="fab fa-git-alt"></i>
+                            <p>Git</p>
+                        </li>
+                        <li><i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="images/honey_logo.png" alt="Honey Spot project image">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-details">
+                <h2>Navyojan</h2>
+                <p>Developed and managed Navyojan.in, a Python and Django-based web application
+                    connecting over 1 million students in India with scholarship opportunities. The platform
+                    features a powerful search engine and advanced filtering for scholarships from various
+                    sources.</p>
+                <ul class="project-points">
+                    <li>Designed and implemented scalable backend architecture using Python and Django</li>
+                    <li>Managed MySQL database interactions to ensure quick access to scholarship data and a
+                        seamless user experience.</li>
+                    <li>Collaborated on frontend development using HTML, CSS, Bootstrap, and JavaScript</li>
+                    <li>Leveraged Django ORM for efficient query management and data consistency.</li>
+                    <li>Implemented strong data validation rules to maintain the accuracy of information
+                        presented to users.</li>
+                    <li>Deployed the application, ensuring stability and high availability.</li>
+                    <li><strong> HOSTED WEBSITE : <a href="https://navyojan.in/">Navjojan.in<i
+                                    class="fas fa-link"></i></a></STRONG></li>
+                </ul>
+                <div class="project-skills">
+                    <ul>
+                        <li><i class="fab fa-html5"></i>
+                            <p>HTML</p>
+                        </li>
+                        <li><i class="fab fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </li>
+                        <li><i class="fab fa-js"></i>
+                            <p>JavaScript</p>
+                        </li>
+                        <li><i class="fab fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </li>
+                        <li><i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </li>
+                        <li><i class="fas fa-server"></i>
+                            <p>Django</p>
+                        </li>
+                        <li><i class="fab fa-git-alt"></i>
+                            <p>Git</p>
+                        </li>
+                        <li><i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </li>
+                        <li><i class="fab fa-postman"></i>
+                            <p>postman</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="images/nav_logo.png" alt="Honey Spot project image">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-details">
+                <h2>Walletwise Backend development</h2>
+                <p>Developed the backend for Wallet Wise, a revolutionary Python Django-based application
+                    designed to streamline the USDT selling experience. Simi Wallet Wise offers users the
+                    fastest and most secure way to manage USDT transactions, ensuring quick deposits,
+                    seamless sales, and prompt payments—all backed by 100% genuine and safe transactions</p>
+                <ul class="project-points">
+                    <li>Engineered a robust backend using Python and Django Rest Framework, tailored to
+                        handle high-frequency USDT transactions efficiently.</li>
+                    <li>Managed MySQL database interactions, optimizing for speed and reliability to support
+                        rapid transaction processing.</li>
+                    <li>Developed RESTful APIs to enable seamless integration between the front end and
+                        backend, ensuring smooth and efficient data handling for USDT transactions</li>
+                    <li>Implemented JWT authentication to secure user sessions, ensuring that all transactions
+                        are protected and conducted safely.</li>
+                    <li>Integrated Twilio to provide real-time SMS notifications, alerting users instantly about
+                        deposits, sales, and payment statuses.</li>
+                    <li>Enforced rigorous data validation and encryption practices to guarantee the safety and
+                        integrity of all financial transactions.</li>
+                    <li>Deployed the application on GoDaddy, configuring the server environment to ensure
+                        high availability, security, and optimal performance for users.</li>
+                </ul>
+                <div class="project-skills">
+                    <ul>
+                        <li><i class="fab fa-html5"></i>
+                            <p>HTML</p>
+                        </li>
+                        <li><i class="fab fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </li>
+                        <li><i class="fab fa-js"></i>
+                            <p>JavaScript</p>
+                        </li>
+                        <li><i class="fab fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </li>
+                        <li><i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </li>
+                        <li><i class="fas fa-server"></i>
+                            <p>Django</p>
+                        </li>
+                        <li><i class="fab fa-git-alt"></i>
+                            <p>Git</p>
+                        </li>
+                        <li><i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </li>
+                        <li><i class="fab fa-postman"></i>
+                            <p>postman</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="images/nav_logo.png" alt="Honey Spot project image">
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p align="center"> <a href="mailto:abhinavpcone@gmail.com">abhinavpcone@gmail.com</a></p>
+        <p align="center">8590897566</p>
+    </section>
+
+    <!-- <footer>
+        <p>&copy; 2024 Abhinav PC. All rights reserved.</p>
+    </footer> -->
+
+    <script>
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const currentMode = localStorage.getItem('mode') || 'light';
+
+        if (currentMode === 'dark') {
+            body.classList.add('dark-mode');
+            toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+            body.classList.remove('dark-mode');
+            toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        toggleButton.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('mode', 'light');
+            }
+        });
+
+        // Function to handle scroll behavior for header
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                darkModeToggle.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+                darkModeToggle.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('toggleSkills').addEventListener('click', function () {
+            var skillsList = document.querySelector('#skills ul');
+            var button = this;
+
+            skillsList.classList.toggle('show-all');
+
+            if (skillsList.classList.contains('show-all')) {
+                button.textContent = 'Show less';
+            } else {
+                button.textContent = '+1 more skill';
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+    </script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 50) { // Change 50 to whatever scroll threshold you prefer
+                navLinks.forEach(link => link.classList.add("scrolled"));
+            } else {
+                navLinks.forEach(link => link.classList.remove("scrolled"));
+            }
+        });
+    </script>
+</body>
+
+</html>
