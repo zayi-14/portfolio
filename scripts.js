@@ -1,4 +1,3 @@
-// Dark Mode Toggle
 const toggleButton = document.getElementById('dark-mode-toggle');
 const body = document.body;
 const currentMode = localStorage.getItem('mode') || 'light';
@@ -43,11 +42,11 @@ document.getElementById('toggleSkills').addEventListener('click', function () {
     var skillsList = document.querySelector('#skills ul');
     var button = this;
 
-    skillsList.classList.toggle('show-all');
+    skillsList.classList.toggle('show-all'); // Toggle the class
 
     if (skillsList.classList.contains('show-all')) {
-        button.textContent = 'Show less';
+        button.textContent = 'Show less'; // Change button text
     } else {
-        button.textContent = '+1 more skill';
+        button.textContent = '+2 more skill'; // Reset button text
     }
 });
